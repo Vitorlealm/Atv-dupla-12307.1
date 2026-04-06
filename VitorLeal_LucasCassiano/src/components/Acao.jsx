@@ -2,8 +2,8 @@ import "./Acao.css";
 
 function Acao(props) {
   const buttonText =
-    props.status.cd === 1
-      ? "Definir atividade em progresso"
+    props.status === "Atividade Concluída!"
+      ? "Em andamento"
       : "Concluir Atividade";
 
   return (

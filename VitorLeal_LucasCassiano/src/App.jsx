@@ -34,7 +34,7 @@ function App() {
           status={studentData.status}
         />
 
-        <Acao onClick={handleClick} status={currentStatus} />
+        <Acao onClick={handleClick} status={currentStatus.desc} />
       </div>
     </div>
   );
