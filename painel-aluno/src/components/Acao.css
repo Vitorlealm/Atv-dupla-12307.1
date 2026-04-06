@@ -1,0 +1,16 @@
+.action-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.action-button {
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

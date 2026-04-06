@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Perfil from "./components/Perfil";
+import Acao from "./components/Acao";
+
+const STATUS = [
+  { cd: 0, desc: "Atividade em Progresso" },
+  { cd: 1, desc: "Atividade Concluída!" },
+];
 
 function App() {
+  const [statusCode, setStatusCode] = useState(0);
+
+  const handleClick = () => {
+    statusCode === 0 ? setStatusCode(1) : setStatusCode(0);
+  };
+
+  const currentStatus = STATUS.find((s) => s.cd === statusCode);
+
+  const studentData = {
+    nome: "Vitor Leal de Oliveira Martins",
+    curso: "2026/1 - BSI0309NA - Desenvolvimento Web Front End",
+    status: currentStatus.desc,
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1 className="title">Painel Interativo do Aluno</h1>
+
+        <Perfil
+          nome={studentData.nome}
+          curso={studentData.curso}
+          status={studentData.status}
+        />
+
+        <Acao onClick={handleClick} status={currentStatus} />
+      </div>
     </div>
   );
 }
